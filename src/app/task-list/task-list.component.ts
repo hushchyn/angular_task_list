@@ -36,7 +36,6 @@ export class TaskListComponent implements OnInit {
     this.visible = !this.visible
     this.value = this.listOftask[index].item
     this.index = index 
-    
   }
 
   saveTask():void{
