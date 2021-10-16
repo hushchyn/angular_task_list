@@ -1,0 +1,33 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th class="index" scope="col">#</th>
+        <th class="task" scope="col">Task</th>
+        <th class="check" scope="col">Check</th>
+        <th class="done"  scope="col">Done / InProgress</th>
+        <th  class="edit" scope="col">Edit</th>
+        <th  class="delete" scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let task of listOftask; let i=index">
+          <td >{{ i +1 }}</td>
+          <td >{{ task.item }}</td>
+          <td > <input type="checkbox" (click)="changeStatus(task)" [checked]="task.status"></td>
+          <td [ngStyle]="{'color': task.status? 'green' : 'red' }"> {{task.status? 'done' : 'In Progress' }}</td>
+          <td> <button type="button" class="btn btn-warning" (click)="editTask(i)" >Edit</button></td>
+          <td> <button type="button" class="btn btn-danger" [disabled]="!task.status" (click)="deleteUser(i)">Delete</button>
+          </td>
+        </tr>
+        <tr class="save">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td> <input class="form-control" type="text" [(ngModel)]="value" *ngIf="visible"></td>
+          <td> <button type="button" class="btn btn-primary" (click)="saveTask()" *ngIf="visible">Save</button> </td>
+        </tr>
+    </tbody>
+  </table>
+  
+
+ 
